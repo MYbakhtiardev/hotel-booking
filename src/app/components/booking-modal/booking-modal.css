@@ -1,0 +1,12 @@
+.modal {
+    backdrop-filter: blur(3px);
+}
+
+.modal-backdrop {
+    background-color: rgba(0,0,0,0.5);
+}
+
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+}

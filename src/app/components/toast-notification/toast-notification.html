@@ -1,0 +1,36 @@
+<div class="toast-container">
+    <div 
+    *ngFor="let toast of toasts; trackBy: trackByToastId" 
+    class="toast show" 
+    [class.border-success]="toast.type === 'success'"
+    [class.border-danger]="toast.type === 'error'"
+    [class.border-warning]="toast.type === 'warning'"
+    [class.border-info]="toast.type === 'info'">
+    
+    <div class="toast-header"
+            [class.text-success]="toast.type === 'success'"
+            [class.text-danger]="toast.type === 'error'"
+            [class.text-warning]="toast.type === 'warning'"
+            [class.text-info]="toast.type === 'info'">
+        <i class="bi me-2"
+            [class.bi-check-circle-fill]="toast.type === 'success'"
+            [class.bi-exclamation-triangle-fill]="toast.type === 'error'"
+            [class.bi-exclamation-circle-fill]="toast.type === 'warning'"
+            [class.bi-info-circle-fill]="toast.type === 'info'"></i>
+        
+        <strong class="me-auto">
+        {{ getToastTitle(toast.type) }}
+        </strong>
+        
+        <button 
+        type="button" 
+        class="btn-close btn-close-sm" 
+        (click)="removeToast(toast.id)">
+        </button>
+    </div>
+    
+    <div class="toast-body">
+        {{ toast.message }}
+    </div>
+    </div>
+</div>

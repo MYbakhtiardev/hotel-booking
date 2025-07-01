@@ -2,11 +2,14 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChang
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
+import { provideHttpClient } from '@angular/common/http';
+import { importProvidersFrom } from '@angular/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 export const appConfig: ApplicationConfig = {
-  providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes)
+    providers: [
+    provideRouter([]),
+    provideHttpClient(),
+    importProvidersFrom(ReactiveFormsModule, FormsModule)
   ]
 };
