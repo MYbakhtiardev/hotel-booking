@@ -1,59 +1,230 @@
-# HotelBooking
+# Hotel Room Booking Engine
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.4.
+A modern, responsive hotel room booking application built with Angular 20, TypeScript, and Bootstrap. This application allows users to browse available hotel rooms, filter by various criteria, and make bookings with a user-friendly interface.
 
-## Development server
+![Hotel Booking Engine](https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=400&fit=crop)
 
-To start a local development server, run:
+## 📋 Prerequisites
 
+Before running this application, ensure you have the following installed:
+
+- **Node.js**: v18 or higher
+- **npm**: v9 or higher
+- **Angular CLI**: v20 or higher
+
+```bash
+# Check your versions
+node --version
+npm --version
+ng version
+```
+
+## 🚀 How to Run the Application
+
+### 1. Clone the Repository
+```bash
+git clone <repository-url>
+cd hotel-booking-engine
+```
+
+### 2. Install Dependencies
+```bash
+npm install
+```
+
+### 3. Start Development Server
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+The application will be available at `http://localhost:4200`
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+### 4. Build for Production
 ```bash
-ng generate component component-name
+ng build --configuration production
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+### 5. Run Tests
 ```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
+# Run unit tests
 ng test
+
+# Run tests with coverage
+ng test --code-coverage
 ```
 
-## Running end-to-end tests
+## 🎨 Design Decisions
 
-For end-to-end (e2e) testing, run:
+### Architecture Choices
 
+#### 1. **Standalone Components (Angular 20)**
+- **Decision**: Used Angular's standalone components instead of traditional NgModules
+- **Reason**: Simplifies the application structure, reduces boilerplate code, and aligns with Angular's modern best practices
+- **Benefits**: Better tree-shaking, easier testing, and more explicit dependencies
+
+#### 2. **Service-Based Architecture**
+- **Decision**: Separated business logic into dedicated services
+- **Reason**: Promotes separation of concerns, reusability, and testability
+- **Implementation**: 
+  - `RoomService` handles room data and availability
+  - `BookingService` manages booking operations and persistence
+  - `NotificationService` handles user feedback
+
+#### 3. **Reactive Programming with RxJS**
+- **Decision**: Leveraged RxJS Observables for state management
+- **Reason**: Provides better handling of asynchronous operations and reactive data flow
+- **Implementation**: Used `BehaviorSubject` for filter state, `combineLatest` for data composition
+
+### UI/UX Design Decisions
+
+#### 1. **Bootstrap 5 Integration**
+- **Decision**: Used Bootstrap for responsive design and component styling
+- **Reason**: Provides battle-tested responsive grid system and accessible components
+- **Customization**: Added custom SCSS for brand-specific styling and animations
+
+#### 2. **Card-Based Layout**
+- **Decision**: Implemented room cards with hover effects and structured information
+- **Reason**: Provides intuitive visual hierarchy and better user engagement
+- **Features**: Room images, pricing, amenities, and availability status
+
+#### 3. **Modal-Based Booking Flow**
+- **Decision**: Used Bootstrap modal for the booking process
+- **Reason**: Maintains context while providing focused booking experience
+- **Benefits**: Doesn't interrupt the browsing flow, reduces navigation complexity
+
+### Form and Validation Strategy
+
+#### 1. **Reactive Forms**
+- **Decision**: Used Angular Reactive Forms instead of Template-driven forms
+- **Reason**: Better validation control, testing capabilities, and TypeScript support
+- **Implementation**: Custom validators for date validation and dynamic form updates
+
+#### 2. **Real-time Validation**
+- **Decision**: Implemented immediate validation feedback
+- **Reason**: Improves user experience by preventing form submission errors
+- **Features**: Visual feedback with Bootstrap validation classes
+
+### Data Management
+
+#### 1. **Mock Data Service**
+- **Decision**: Implemented in-memory mock data with simulated API delays
+- **Reason**: Demonstrates realistic data flow without requiring backend setup
+- **Implementation**: Observable-based service with delay simulation
+
+#### 2. **LocalStorage Persistence**
+- **Decision**: Used localStorage for booking persistence
+- **Reason**: Provides data persistence between sessions without requiring backend
+- **Benefits**: Simulates real-world data persistence behavior
+
+## 🔧 Framework and Library Choices
+
+### Why These Technologies?
+
+#### **Angular 20** ✅
+- **Chosen**: Latest Angular with standalone components
+- **Reasons**: 
+  - Modern framework with excellent TypeScript support
+  - Powerful CLI for scaffolding and build optimization
+  - Strong ecosystem and community support
+  - Built-in features for forms, routing, and HTTP
+
+#### **Bootstrap 5** ✅
+- **Chosen**: Bootstrap for responsive design
+- **Reasons**:
+  - Mature, well-documented CSS framework
+  - Excellent responsive grid system
+  - Accessibility features built-in
+  - Consistent component design language
+
+#### **RxJS** ✅
+- **Chosen**: For reactive state management
+- **Reasons**:
+  - Native Angular integration
+  - Powerful operators for data transformation
+  - Excellent for handling asynchronous operations
+  - Industry standard for reactive programming
+
+### Alternative Considerations
+
+#### **State Management**
+- **Considered**: NgRx for state management
+- **Decision**: Used services with RxJS instead
+- **Reason**: Application complexity doesn't justify the overhead of NgRx; services with BehaviorSubject provide sufficient state management for this scope
+
+#### **UI Library**
+- **Considered**: Angular Material or PrimeNG
+- **Decision**: Used Bootstrap instead
+- **Reason**: Bootstrap provides more design flexibility and is lighter weight for this specific use case
+
+#### **Styling Approach**
+- **Considered**: CSS-in-JS or utility-first frameworks like Tailwind
+- **Decision**: Used Bootstrap + Custom SCSS
+- **Reason**: Balances rapid development with customization capabilities
+
+## 🧪 Testing Strategy
+
+The application includes comprehensive testing setup:
+
+- **Unit Tests**: Service layer testing with mocked dependencies
+- **Component Tests**: UI component testing with TestBed
+- **Integration Tests**: End-to-end user flow testing
+- **Coverage Reports**: Generated with `ng test --code-coverage`
+
+## 🚀 Deployment
+
+The application can be deployed to various platforms:
+
+### Netlify
 ```bash
-ng e2e
+ng build --configuration production
+netlify deploy --prod --dir=dist/hotel-booking-engine
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### Vercel
+```bash
+ng build --configuration production
+vercel --prod
+```
 
-## Additional Resources
+### Traditional Web Server
+```bash
+ng build --configuration production
+# Deploy contents of dist/hotel-booking-engine to web server
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 🔮 Future Enhancements
+
+- **Backend Integration**: Replace mock services with real API calls
+- **User Authentication**: Add user registration and login
+- **Payment Integration**: Implement payment processing
+- **Advanced Filtering**: Add date range availability filtering
+- **Room Management**: Admin panel for room management
+- **Internationalization**: Multi-language support
+- **PWA Features**: Offline capability and push notifications
+
+## 📝 Development Notes
+
+### Performance Optimizations
+- Lazy loading for improved initial load time
+- OnPush change detection strategy where applicable
+- Trackby functions for efficient list rendering
+- Optimized bundle size with tree-shaking
+
+### Accessibility Features
+- Semantic HTML structure
+- ARIA labels for screen readers
+- Keyboard navigation support
+- Color contrast compliance
+
+### Browser Support
+- Modern browsers (Chrome, Firefox, Safari, Edge)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+- Progressive enhancement approach
+
+## 📄 License
+
+This project is developed as a demonstration application. Feel free to use it as a reference or starting point for your own projects.
+
+---
+
+**Built with ❤️ using Angular 20, TypeScript, and Bootstrap**
