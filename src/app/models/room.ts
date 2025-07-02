@@ -5,6 +5,5 @@ export interface Room {
   price: number;
   isAvailable: boolean;
   description?: string;
-  amenities?: string[];
   imageUrl?: string;
 }

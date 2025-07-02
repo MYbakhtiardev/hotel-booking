@@ -23,8 +23,8 @@ ng version
 
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
-cd hotel-booking-engine
+git clone https://github.com/MYbakhtiardev/hotel-booking
+cd hotel-booking
 ```
 
 ### 2. Install Dependencies
@@ -42,15 +42,6 @@ The application will be available at `http://localhost:4200`
 ### 4. Build for Production
 ```bash
 ng build --configuration production
-```
-
-### 5. Run Tests
-```bash
-# Run unit tests
-ng test
-
-# Run tests with coverage
-ng test --code-coverage
 ```
 
 ## 🎨 Design Decisions
@@ -128,7 +119,7 @@ ng test --code-coverage
   - Strong ecosystem and community support
   - Built-in features for forms, routing, and HTTP
 
-#### **Bootstrap 5** ✅
+#### **Bootstrap ** ✅
 - **Chosen**: Bootstrap for responsive design
 - **Reasons**:
   - Mature, well-documented CSS framework

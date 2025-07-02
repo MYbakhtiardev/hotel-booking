@@ -17,7 +17,6 @@ export class Roomservice {
       price: 99,
       isAvailable: true,
       description: 'Cozy single room with city view',
-      amenities: ['WiFi', 'AC', 'TV'],
       imageUrl: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400'
     },
     {
@@ -27,7 +26,6 @@ export class Roomservice {
       price: 149,
       isAvailable: true,
       description: 'Spacious double room with garden view',
-      amenities: ['WiFi', 'AC', 'TV', 'Mini Bar'],
       imageUrl: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=400'
     },
     {
@@ -37,7 +35,6 @@ export class Roomservice {
       price: 299,
       isAvailable: false,
       description: 'Luxury suite with panoramic view',
-      amenities: ['WiFi', 'AC', 'TV', 'Mini Bar', 'Jacuzzi'],
       imageUrl: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400'
     },
     {
@@ -47,7 +44,6 @@ export class Roomservice {
     price: 89,
     isAvailable: true,
     description: 'Comfortable single room on second floor',
-    amenities: ['WiFi', 'AC', 'TV'],
     imageUrl: 'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=400'
   },
   {
@@ -57,7 +53,6 @@ export class Roomservice {
     price: 169,
     isAvailable: true,
     description: 'Premium double room with balcony',
-    amenities: ['WiFi', 'AC', 'TV', 'Mini Bar', 'Balcony'],
     imageUrl: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400'
   },
   {
@@ -67,7 +62,6 @@ export class Roomservice {
     price: 349,
     isAvailable: true,
     description: 'Executive suite with separate living area',
-    amenities: ['WiFi', 'AC', 'TV', 'Mini Bar', 'Living Area', 'Work Desk'],
     imageUrl: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=400'
   }
   ];
