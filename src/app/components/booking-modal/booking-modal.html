@@ -19,7 +19,7 @@
                 <p class="mb-1 text-muted">{{ selectedRoom.description }}</p>
                 </div>
                 <div class="col-md-4 text-end">
-                <span class="h5 text-primary">\${{ selectedRoom.price }}</span>
+                <span class="h5 text-primary">RM{{ selectedRoom.price }}</span>
                 <small class="d-block text-muted">/night</small>
                 </div>
             </div>
@@ -89,8 +89,8 @@
 
             <div *ngIf="totalNights > 0" class="alert alert-info">
             <strong>Booking Summary:</strong><br>
-            {{ totalNights }} night(s) × \${{ selectedRoom?.price }} = 
-            <strong>\${{ totalPrice }}</strong>
+            {{ totalNights }} night(s) × RM{{ selectedRoom?.price }} = 
+            <strong>RM{{ totalPrice }}</strong>
             </div>
         </div>
 
